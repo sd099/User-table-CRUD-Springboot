@@ -1,1 +1,5 @@
+org\paytm\milestones1\User\UserService.class
+org\paytm\milestones1\User\UserRepository.class
 org\paytm\milestones1\UserApiApp.class
+org\paytm\milestones1\User\User.class
+org\paytm\milestones1\User\UserController.class
