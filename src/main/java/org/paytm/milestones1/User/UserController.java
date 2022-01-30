@@ -20,8 +20,9 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.POST,value = "/user")
-    public void addUser(@RequestBody User user){
-        userService.addUser(user);
+    public String addUser(@RequestBody User user){
+
+        return userService.addUser(user);
     }
 
 }

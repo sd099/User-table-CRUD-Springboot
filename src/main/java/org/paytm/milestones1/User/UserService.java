@@ -18,8 +18,19 @@ public class UserService {
         return users;
     }
 
-    public void addUser(User user){
-        userRepository.save(user);
+    public String addUser(User user){
+
+        User findByUserName = userRepository.findByUserName(user.getUserName());
+        User findByEmailID = userRepository.findByEmailID( user.getEmailID());
+        User findByMobileNumber = userRepository.findByMobileNumber(user.getMobileNumber());
+
+        if(findByUserName==null && findByEmailID==null && findByMobileNumber==null ){
+            userRepository.save(user);
+             return "Stored";
+        }else{
+            return "User Already Exist";
+        }
+
     }
 
 }

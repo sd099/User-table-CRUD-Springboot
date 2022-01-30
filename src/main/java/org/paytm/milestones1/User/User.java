@@ -3,11 +3,11 @@ package org.paytm.milestones1.User;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "User_Table")
 public class User {
 
     //User Schema
     @Id
+    @GeneratedValue
     @Column(name = "User_Id")
     int userId;
     @Column(name = "User_Name",nullable = false)
@@ -29,8 +29,9 @@ public class User {
     public User() {
     }
 
-    public User(int userId, String firstName, String lastName, String mobileNumber, String emailID, String address1, String address2) {
+    public User(int userId,  String userName, String firstName, String lastName, String mobileNumber, String emailID, String address1, String address2) {
         this.userId = userId;
+        this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
         this.mobileNumber = mobileNumber;
