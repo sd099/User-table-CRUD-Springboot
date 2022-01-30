@@ -12,12 +12,7 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public List<User> getAllUsers(){
-        List<User> users = new ArrayList<>();
-        userRepository.findAll().forEach(users::add);
-        return users;
-    }
-
+    //Method to check the user already exists or not
     public boolean userNotExist(User user){
 
         User findByUserName = userRepository.findByUserName(user.getUserName());
@@ -32,6 +27,14 @@ public class UserService {
 
     }
 
+    //Method to get all users
+    public List<User> getAllUsers(){
+        List<User> users = new ArrayList<>();
+        userRepository.findAll().forEach(users::add);
+        return users;
+    }
+
+    //Method to add a user
     public String addUser(User user){
 
         if(userNotExist(user)){
@@ -42,10 +45,12 @@ public class UserService {
         }
     }
 
+    //Method to get a user by its userId
     public User getUser(int userId){
         return userRepository.findById(userId).orElse(null);
     }
 
+    //Method to update a user
     public String updateUser(int userId,User user){
         User existingUser = userRepository.findById(userId).orElse(null);
         if(existingUser!=null) {
@@ -67,6 +72,7 @@ public class UserService {
         }
     }
 
+    //Method to delete a user
     public void deleteUser(int userId){
         userRepository.deleteById(userId);
     }
