@@ -11,7 +11,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/user")
+    @RequestMapping("/users")
     public List<User> getAllUsers(){
         return userService.getAllUsers();
     }
@@ -25,6 +25,11 @@ public class UserController {
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public User getUser(@RequestParam("userId") Integer userId){
         return userService.getUser(userId);
+    }
+
+    @RequestMapping(value = "/user", method = RequestMethod.PUT)
+    public String updateUser(@RequestParam("userId") Integer userId, @RequestBody User user){
+        return userService.updateUser(userId, user);
     }
 
 }

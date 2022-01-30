@@ -18,13 +18,23 @@ public class UserService {
         return users;
     }
 
-    public String addUser(User user){
+    public boolean userNotExist(User user){
 
         User findByUserName = userRepository.findByUserName(user.getUserName());
         User findByEmailID = userRepository.findByEmailID( user.getEmailID());
         User findByMobileNumber = userRepository.findByMobileNumber(user.getMobileNumber());
 
         if(findByUserName==null && findByEmailID==null && findByMobileNumber==null ){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+    public String addUser(User user){
+
+        if(userNotExist(user)){
             userRepository.save(user);
              return "Stored";
         }else{
@@ -34,6 +44,27 @@ public class UserService {
 
     public User getUser(int userId){
         return userRepository.findById(userId).orElse(null);
+    }
+
+    public String updateUser(int userId,User user){
+        User existingUser = userRepository.findById(userId).orElse(null);
+        if(existingUser!=null) {
+            if(userNotExist(user)){
+                existingUser.setUserName(user.getUserName());
+                existingUser.setFirstName(user.getFirstName());
+                existingUser.setLastName(user.getLastName());
+                existingUser.setMobileNumber(user.getMobileNumber());
+                existingUser.setEmailID(user.getEmailID());
+                existingUser.setAddress1(user.getAddress1());
+                existingUser.setAddress2(user.getAddress2());
+                userRepository.save(existingUser);
+                return "User Updated";
+            }else{
+                return "User Already Exist";
+            }
+        }else{
+            return "User Not Found";
+        }
     }
 
 }
