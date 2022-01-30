@@ -32,4 +32,9 @@ public class UserController {
         return userService.updateUser(userId, user);
     }
 
+    @RequestMapping(value = "/user", method = RequestMethod.DELETE)
+    public void deleteUser(@RequestParam("userId") Integer userId){
+         userService.deleteUser(userId);
+    }
+
 }
