@@ -30,7 +30,10 @@ public class UserService {
         }else{
             return "User Already Exist";
         }
+    }
 
+    public User getUser(int userId){
+        return userRepository.findById(userId).orElse(null);
     }
 
 }
