@@ -1,5 +1,7 @@
-package org.paytm.milestones1.User;
+package org.paytm.milestones1.controller;
 
+import org.paytm.milestones1.service.UserService;
+import org.paytm.milestones1.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

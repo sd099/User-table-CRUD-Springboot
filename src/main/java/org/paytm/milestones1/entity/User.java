@@ -1,4 +1,4 @@
-package org.paytm.milestones1.User;
+package org.paytm.milestones1.entity;
 
 import javax.persistence.*;
 

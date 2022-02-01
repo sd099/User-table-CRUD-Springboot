@@ -1,5 +1,7 @@
-package org.paytm.milestones1.User;
+package org.paytm.milestones1.service;
 
+import org.paytm.milestones1.repository.UserRepository;
+import org.paytm.milestones1.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,7 @@
-package org.paytm.milestones1.User;
+package org.paytm.milestones1.repository;
 
 
+import org.paytm.milestones1.entity.User;
 import org.springframework.data.repository.CrudRepository;
 
 
